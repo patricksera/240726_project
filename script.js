@@ -94,24 +94,24 @@ const places = [
     title: "Boschetto",
     coords: [45.00682838717714, 7.6333242217053545],
     images: [
-      { src: "images/3.jpg", caption: "La nostra prima grigliata" },
-      { src: "images/38.jpg", caption: "" },
-      { src: "images/39.jpg", caption: "" },
-      { src: "images/40.jpg", caption: "" }
+      { src: "images/3.JPG", caption: "La nostra prima grigliata" },
+      { src: "images/38.JPG", caption: "" },
+      { src: "images/39.JPG", caption: "" },
+      { src: "images/40.JPG", caption: "" }
     ]
   },
   {
     title: "Tiger - Torino",
     coords: [45.066291523863576, 7.676321562527939],
     images: [
-      { src: "images/4.jpg", caption: "La mia regina" }
+      { src: "images/4.JPG", caption: "La mia regina" }
     ]
   },
   {
     title: "Casa Marty",
     coords: [44.99826486108839, 7.64202861023141],
     images: [
-      { src: "images/5.jpg", caption: "La prima notte insieme" },
+      { src: "images/5.JPG", caption: "La prima notte insieme" },
       { src: "images/7.jpeg", caption: "Primo Natale insieme" },
       { src: "images/13.jpeg", caption: "Primo anno insieme" }
     ]
@@ -127,7 +127,7 @@ const places = [
     title: "Casa Khon",
     coords: [44.99767921931386, 7.660424696694355],
     images: [
-      { src: "images/8.jpg", caption: "Primo Capodanno inseme" }
+      { src: "images/8.JPG", caption: "Primo Capodanno inseme" }
     ]
   },
   {
@@ -155,7 +155,7 @@ const places = [
     title: "JC Maxwell",
     coords: [45.0008738112772, 7.634905508329781],
     images: [
-      { src: "images/12.jpg", caption: "Maturi insieme (io di più)" }
+      { src: "images/12.JPG", caption: "Maturi insieme (io di più)" }
     ]
   },
   {
@@ -163,7 +163,7 @@ const places = [
     coords: [45.079460448018146, 6.697739120995503],
     images: [
       { src: "images/14.jpeg", caption: "Passeggiata in montanga" },
-      { src: "images/44.jpg", caption: "Lancio del prosciutto" },
+      { src: "images/44.JPG", caption: "Lancio del prosciutto" },
       { src: "images/43.jpeg", caption: "L'amore mio" }
     ]
   },
@@ -172,8 +172,8 @@ const places = [
     coords: [44.771269973516766, 7.0388633393605655],
     images: [
       { src: "images/15.jpeg", caption: "" },
-      { src: "images/16.jpg", caption: "" },
-      { src: "images/17.jpg", caption: "" }
+      { src: "images/16.JPG", caption: "" },
+      { src: "images/17.JPG", caption: "" }
     ]
   },
   {
@@ -208,34 +208,34 @@ const places = [
     title: "Gardaland",
     coords: [45.45454137795561, 10.713949788814105],
     images: [
-      { src: "images/30.jpg", caption: "" },
-      { src: "images/31.jpg", caption: "" },
-      { src: "images/32.jpg", caption: "Halloween" }
+      { src: "images/30.JPG", caption: "" },
+      { src: "images/31.JPG", caption: "" },
+      { src: "images/32.JPG", caption: "Halloween" }
     ]
   },
   {
     title: "La Thuile",
     coords: [45.71038651236714, 6.948895836263359],
     images: [
-      { src: "images/33.jpg", caption: "La neveeee" },
-      { src: "images/34.jpg", caption: "" },
-      { src: "images/35.jpg", caption: "Il nostro piccolo" }
+      { src: "images/33.JPG", caption: "La neveeee" },
+      { src: "images/34.JPG", caption: "" },
+      { src: "images/35.JPG", caption: "Il nostro piccolo" }
     ]
   },
   {
     title: "Palavela",
     coords: [45.02356232833534, 7.66914575020416],
     images: [
-      { src: "images/36.jpg", caption: "" },
-      { src: "images/37.jpg", caption: "La mia pattinatrice preferita" }
+      { src: "images/36.JPG", caption: "" },
+      { src: "images/37.JPG", caption: "La mia pattinatrice preferita" }
     ]
   },
   {
     title: "Zoom",
     coords: [44.932409265009, 7.420601654363811],
     images: [
-      { src: "images/36.jpg", caption: "La mia scimmietta" },
-      { src: "images/37.jpg", caption: "Ellie (versione più bella)" }
+      { src: "images/36.JPG", caption: "La mia scimmietta" },
+      { src: "images/37.JPG", caption: "Ellie (versione più bella)" }
     ]
   }
 ];
