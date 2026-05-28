@@ -1,51 +1,345 @@
+/* ── RESET & BASE ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:   #f5f0e8;
+  --blush:   #e8c4b0;
+  --wine:    #7a2d3e;
+  --dark:    #1a1014;
+  --text:    #2e1a20;
+  --muted:   #9e8080;
+}
+
 body {
-  margin: 0;
-  background: #0f0f12;
-  color: white;
-  font-family: Arial, sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--dark);
+  color: var(--cream);
+  min-height: 100vh;
+}
+
+/* ── LOCK SCREEN ──────────────────────────────────────── */
+#lock-screen {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* LEFT — image panel */
+.lock-left {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;   /* forza l'altezza piena su desktop */
+}
+
+.lock-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;            /* con position:absolute serve 100%, non auto */
+  object-fit: cover;       /* cover per immagine di sfondo, niente bande */
+  object-position: center;
+  display: block;
+  filter: brightness(0.75) saturate(1.1);
+}
+
+.lock-image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem;
+  background: linear-gradient(to top, rgba(26,16,20,0.65) 0%, transparent 55%);
+}
+
+.lock-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: var(--cream);
+  opacity: 0.92;
+  letter-spacing: 0.01em;
+}
+
+/* RIGHT — keypad panel */
+.lock-right {
+  width: 400px;
+  flex-shrink: 0;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-left: 1px solid rgba(122,45,62,0.25);
+}
+
+.lock-box {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lock-icon {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  animation: pulse-lock 2.5s ease-in-out infinite;
+}
+@keyframes pulse-lock {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.1); opacity: 0.8; }
+}
+
+.lock-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.lock-subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+/* PIN dots */
+.pin-display {
+  display: flex;
+  gap: 14px;
+  margin: 0.5rem 0 1rem;
+}
+
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--blush);
+  background: transparent;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.pin-dot.filled {
+  background: var(--blush);
+  transform: scale(1.15);
+}
+
+/* Keypad grid */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.key {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  border-radius: 10px;
+  padding: 18px 0;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, border-color 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.key:hover {
+  background: rgba(232,196,176,0.12);
+  border-color: rgba(232,196,176,0.3);
+}
+
+.key:active {
+  transform: scale(0.93);
+  background: rgba(232,196,176,0.2);
+}
+
+.key-clear {
+  background: rgba(122,45,62,0.15);
+  border-color: rgba(122,45,62,0.3);
+  color: var(--blush);
+}
+
+.key-clear:hover {
+  background: rgba(122,45,62,0.28);
+}
+
+.key-enter {
+  background: var(--wine);
+  border-color: var(--wine);
+  color: var(--cream);
+  font-size: 1.5rem;
+}
+
+.key-enter:hover {
+  background: #9a3a50;
+  border-color: #9a3a50;
+}
+
+/* Error message */
+.lock-error {
+  color: #e07070;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.3s;
+  height: 1.2em;
+  text-align: center;
+}
+
+.lock-error.visible { opacity: 1; }
+
+/* Shake animation on wrong pin */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(5px); }
+}
+.shake { animation: shake 0.4s ease; }
+
+/* ── APP / MAP SCREEN ─────────────────────────────────── */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero {
   text-align: center;
-  padding: 30px 20px 10px;
+  padding: 28px 20px 12px;
+  background: var(--dark);
 }
 
 .hero h1 {
-  margin-bottom: 10px;
-  font-size: 2.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  margin-bottom: 6px;
 }
 
 .hero p {
-  opacity: 0.7;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 #map {
+  flex: 1;
   width: 100%;
-  height: 80vh;
+  height: 84vh;
+}
+
+/* ── POPUP ────────────────────────────────────────────── */
+.leaflet-popup-content-wrapper {
+  border-radius: 14px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: 340px !important;
 }
 
 .popup-content {
-  width: 260px;
+  width: 340px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .popup-content h2 {
-  margin-top: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 14px 16px 10px;
+  color: var(--text);
 }
 
 .swiper {
   width: 100%;
-  height: 180px;
-  border-radius: 12px;
+  height: auto;
   overflow: hidden;
+}
+
+/* le slide devono stare in flow normale, non absolute */
+.swiper-wrapper {
+  align-items: flex-start;
+}
+ 
+.swiper-slide {
+  height: auto !important;  /* sovrascrive l'height inline di Swiper */
 }
 
 .swiper img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: auto;        /* proporzioni naturali della foto */
+  object-fit: contain; /* mostra tutto, nessun ritaglio */
+  display: block;
+  background: #111;    /* sfondo neutro se ci sono bande laterali */
 }
 
 .description {
-  margin-top: 10px;
-  font-size: 0.95rem;
+  margin: 10px 16px 14px;
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.5;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.swiper-slide {
+  position: relative;
+}
+
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 14px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+  color: #fff;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  border-radius: 0 0 0 0; /* eredita dal popup */
+  text-align: center;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 700px) {
+  #lock-screen { flex-direction: column; }
+
+  .lock-left {
+    min-height: unset;  /* annulla il 100vh del desktop */
+    height: 40vh;
+    flex: none;
+  }
+
+  .lock-right {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(122,45,62,0.25);
+    padding: 1.5rem 1rem 2rem;
+  }
 }

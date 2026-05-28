@@ -5,26 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>La nostra mappa ❤️</title>
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
 
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="hero">
-    <h1>La nostra mappa ❤️</h1>
-    <p>Ogni luogo racconta qualcosa di noi.</p>
+  <!-- PASSWORD SCREEN -->
+  <div id="lock-screen">
+    <div class="lock-left">
+      <img
+        src="images/intro.jpg"
+        alt="Foto romantica"
+        class="lock-image"
+      />
+      <div class="lock-image-overlay">
+        <span class="lock-quote">Ogni luogo racconta<br/>qualcosa di noi</span>
+      </div>
+    </div>
+
+    <div class="lock-right">
+      <div class="lock-box">
+        <div class="lock-icon">🔒</div>
+        <h2 class="lock-title">Inserisci la nostra data per entrare</h2>
+
+        <div class="pin-display">
+          <span class="pin-dot" id="dot-0"></span>
+          <span class="pin-dot" id="dot-1"></span>
+          <span class="pin-dot" id="dot-2"></span>
+          <span class="pin-dot" id="dot-3"></span>
+          <span class="pin-dot" id="dot-4"></span>
+          <span class="pin-dot" id="dot-5"></span>
+        </div>
+
+        <div class="keypad">
+          <button class="key" onclick="pressKey('1')">1</button>
+          <button class="key" onclick="pressKey('2')">2</button>
+          <button class="key" onclick="pressKey('3')">3</button>
+          <button class="key" onclick="pressKey('4')">4</button>
+          <button class="key" onclick="pressKey('5')">5</button>
+          <button class="key" onclick="pressKey('6')">6</button>
+          <button class="key" onclick="pressKey('7')">7</button>
+          <button class="key" onclick="pressKey('8')">8</button>
+          <button class="key" onclick="pressKey('9')">9</button>
+          <button class="key key-clear" onclick="clearPin()">✕</button>
+          <button class="key" onclick="pressKey('0')">0</button>
+          <button class="key key-enter" onclick="submitPin()">↵</button>
+        </div>
+
+        <p class="lock-error" id="lock-error">Codice errato. Riprova.</p>
+      </div>
+    </div>
   </div>
 
-  <div id="map"></div>
+  <!-- MAP SCREEN -->
+  <div id="app" style="display:none;">
+    <div class="hero">
+      <h1>La nostra mappa ❤️</h1>
+      <p>Ogni luogo racconta qualcosa di noi.</p>
+    </div>
+
+    <div id="map"></div>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
