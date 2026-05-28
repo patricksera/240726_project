@@ -104,7 +104,7 @@ const places = [
     title: "Tiger - Torino",
     coords: [45.066291523863576, 7.676321562527939],
     images: [
-      { src: "images/4.JPG", caption: "La mia regina" }
+      { src: "images/4.jpg", caption: "La mia regina" }
     ]
   },
   {
@@ -120,7 +120,9 @@ const places = [
     title: "Torino Lingotto",
     coords: [45.033104521857304, 7.665247597469243],
     images: [
-      { src: "images/6.jpeg", caption: "Halloween" }
+      { src: "images/6.jpeg", caption: "Halloween" },
+      { src: "images/45.JPG", caption: "Torino Comics" },
+      { src: "images/46.JPG", caption: "Torino Comics" }
     ]
   },
   {
@@ -141,6 +143,8 @@ const places = [
     title: "Casa Pat",
     coords: [44.980786041248386, 7.458732316461946],
     images: [
+      { src: "images/49.jpeg", caption: "Primo Natale insieme" },
+      { src: "images/47.JPG", caption: "" },
       { src: "images/10.jpeg", caption: "La donna della mia vita" }
     ]
   },
@@ -210,6 +214,7 @@ const places = [
     images: [
       { src: "images/30.JPG", caption: "" },
       { src: "images/31.JPG", caption: "" },
+      { src: "images/50.jpeg", caption: "" },
       { src: "images/32.JPG", caption: "Halloween" }
     ]
   },
@@ -226,7 +231,7 @@ const places = [
     title: "Palavela",
     coords: [45.02356232833534, 7.66914575020416],
     images: [
-      { src: "images/36.JPG", caption: "" },
+      { src: "images/36.jpeg", caption: "" },
       { src: "images/37.JPG", caption: "La mia pattinatrice preferita" }
     ]
   },
@@ -234,8 +239,38 @@ const places = [
     title: "Zoom",
     coords: [44.932409265009, 7.420601654363811],
     images: [
-      { src: "images/36.JPG", caption: "La mia scimmietta" },
-      { src: "images/37.JPG", caption: "Ellie (versione più bella)" }
+      { src: "images/41.JPG", caption: "La mia scimmietta" },
+      { src: "images/42.JPG", caption: "Ellie (versione più bella)" }
+    ]
+  },
+  {
+    title: "Poke Wood",
+    coords: [45.07126361914433, 7.678076654371228],
+    images: [
+      { src: "images/48.jpeg", caption: "" },
+      { src: "images/42.JPG", caption: "" },
+      { src: "images/54.JPG", caption: "" }
+    ]
+  },
+  {
+    title: "Play City - 45",
+    coords: [44.977358776300896, 7.707720119659223],
+    images: [
+      { src: "images/51.JPG", caption: "" }
+    ]
+  },
+  {
+    title: "Le Cupole Lido",
+    coords: [44.689464239747146, 7.679324981331989],
+    images: [
+      { src: "images/53.JPG", caption: "" }
+    ]
+  },
+  {
+    title: "IKEA",
+    coords: [45.098355296231446, 7.581199466007927],
+    images: [
+      { src: "images/55.JPG", caption: "" }
     ]
   }
 ];
