@@ -239,8 +239,8 @@ const places = [
     title: "Zoom",
     coords: [44.932409265009, 7.420601654363811],
     images: [
-      { src: "images/41.JPG", caption: "La mia scimmietta" },
-      { src: "images/42.JPG", caption: "Ellie (versione più bella)" }
+      { src: "images/41.jpeg", caption: "La mia scimmietta" },
+      { src: "images/42.jpeg", caption: "Ellie (versione più bella)" }
     ]
   },
   {
@@ -248,8 +248,7 @@ const places = [
     coords: [45.07126361914433, 7.678076654371228],
     images: [
       { src: "images/48.jpeg", caption: "" },
-      { src: "images/42.JPG", caption: "" },
-      { src: "images/54.JPG", caption: "" }
+      { src: "images/54.jpeg", caption: "" }
     ]
   },
   {
@@ -270,7 +269,7 @@ const places = [
     title: "IKEA",
     coords: [45.098355296231446, 7.581199466007927],
     images: [
-      { src: "images/55.JPG", caption: "" }
+      { src: "images/55.jpeg", caption: "" }
     ]
   }
 ];
